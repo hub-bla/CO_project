@@ -61,6 +61,12 @@ build CMakeFiles/CO_graph_coloring.dir/json/cJSON.c.o: C_COMPILER__CO_graph_colo
   OBJECT_DIR = CMakeFiles/CO_graph_coloring.dir
   OBJECT_FILE_DIR = CMakeFiles/CO_graph_coloring.dir/json
 
+build CMakeFiles/CO_graph_coloring.dir/greedy_aproach/greedy.c.o: C_COMPILER__CO_graph_coloring_unscanned_Debug /home/hubert/CLionProjects/CO_graph_coloring/greedy_aproach/greedy.c || cmake_object_order_depends_target_CO_graph_coloring
+  DEP_FILE = CMakeFiles/CO_graph_coloring.dir/greedy_aproach/greedy.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/CO_graph_coloring.dir
+  OBJECT_FILE_DIR = CMakeFiles/CO_graph_coloring.dir/greedy_aproach
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CO_graph_coloring
@@ -69,7 +75,7 @@ build CMakeFiles/CO_graph_coloring.dir/json/cJSON.c.o: C_COMPILER__CO_graph_colo
 #############################################
 # Link the executable CO_graph_coloring
 
-build CO_graph_coloring: C_EXECUTABLE_LINKER__CO_graph_coloring_Debug CMakeFiles/CO_graph_coloring.dir/main.c.o CMakeFiles/CO_graph_coloring.dir/json/cJSON.c.o
+build CO_graph_coloring: C_EXECUTABLE_LINKER__CO_graph_coloring_Debug CMakeFiles/CO_graph_coloring.dir/main.c.o CMakeFiles/CO_graph_coloring.dir/json/cJSON.c.o CMakeFiles/CO_graph_coloring.dir/greedy_aproach/greedy.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/CO_graph_coloring.dir
   POST_BUILD = :
