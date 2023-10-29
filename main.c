@@ -2,12 +2,13 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include "json/cJSON.h"
-#include "greedy_aproach/greedy.h"
-
+#include "greedy_approach/greedy.h"
+#include "backtracking_approach/backtracking.h"
 cJSON* load_json_file(char* file_name);
 int get_num_of_vertices(cJSON* json);
 void get_graph_matrix(cJSON* json, int n,int graph_matrix[n][n]);
 void print_graph_matrix(int n, int graph_matrix[n][n]);
+
 
 int main() {
     cJSON* json = load_json_file("../graph.json");
@@ -15,14 +16,13 @@ int main() {
     const int n = get_num_of_vertices(json);
     int graph_matrix[n][n];
     get_graph_matrix(json, n, graph_matrix);
-//    print_graph_matrix(n, graph_matrix);
 
     int colors[n];
     for (int i=0; i<n; i++){
         colors[i] = 0;
     }
     colors[0] = 1;
-    greedy_coloring(n, graph_matrix, colors, color_constraint);
+    backtracking_alg(n, graph_matrix, colors, color_constraint);
 
     for (int i=0; i<n; i++){
         printf("%d ", colors[i]);
@@ -83,3 +83,4 @@ void print_graph_matrix(int n, int graph_matrix[n][n]){
         printf("\n");
     }
 }
+

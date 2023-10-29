@@ -1,7 +1,9 @@
 # ninja log v5
+1	26	1698599791638827227	CMakeFiles/CO_graph_coloring.dir/greedy_aproach/greedy.c.o	c007f6bfcdcf2fc9
 0	144	1698589401041989313	CMakeFiles/CO_graph_coloring.dir/json/cJSON.c.o	1a8d9984c4dc662a
-1	32	1698595764040541671	CMakeFiles/CO_graph_coloring.dir/main.c.o	74ae686d3793a1c2
-32	51	1698595764060541655	CO_graph_coloring	fa69012b408630c7
-2	32	1698596040768461462	CMakeFiles/CO_graph_coloring.dir/greedy_aproach/greedy.c.o	c007f6bfcdcf2fc9
-1	62	1698596040796461465	CMakeFiles/CO_graph_coloring.dir/main.c.o	74ae686d3793a1c2
-62	80	1698596040816461467	CO_graph_coloring	8f23097bbad46ef8
+0	69	1698599855430398132	CMakeFiles/CO_graph_coloring.dir/main.c.o	74ae686d3793a1c2
+69	88	1698599855450404222	CO_graph_coloring	8f23097bbad46ef8
+1	25	1698600147695388817	CMakeFiles/CO_graph_coloring.dir/greedy_approach/greedy.c.o	56f966809568e2f2
+1	32	1698600147703389148	CMakeFiles/CO_graph_coloring.dir/main.c.o	74ae686d3793a1c2
+1	35	1698600147703389148	CMakeFiles/CO_graph_coloring.dir/backtracking_approach/backtracking.c.o	97c2eb7d82e54459
+35	69	1698600147739390636	CO_graph_coloring	f957b9b6b9cce087
