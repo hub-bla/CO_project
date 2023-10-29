@@ -1,0 +1,3 @@
+/home/hubert/CLionProjects/CO_graph_coloring/cmake-build-debug/CMakeFiles/CO_graph_coloring.dir
+/home/hubert/CLionProjects/CO_graph_coloring/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/hubert/CLionProjects/CO_graph_coloring/cmake-build-debug/CMakeFiles/rebuild_cache.dir
