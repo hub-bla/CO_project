@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 
 
 
-    printf("Minimal colors using %s alg: %d\n", argv[2],count_colors(n, colors));
+    printf("Minimal colors using %s alg: %d\n", argv[2], count_colors(n, colors));
     printf("%d\n", check_if_coloring_is_valid(n, graph_matrix, colors, color_constraint));
     for (int i=0; i<n; i++){
         printf("%d ", colors[i]);
@@ -127,5 +127,17 @@ bool check_if_coloring_is_valid(int n, int graph_matrix[n][n],int colors[n], con
 }
 
 
+void bruteforce(int n, int graph_matrix[n][n], cJSON* color_constraint){
+    int solution_to_check[n];
+    for (int i=0; i<n; i++) solution_to_check[i] =1;
+
+    //colors
+    for (int i=2; i<=n; i++){
+        //vertexes
+        for (int j=0; j<n; j++){
+            int previous_color = solution_to_check[j];
+        }
+    }
+}
 
 

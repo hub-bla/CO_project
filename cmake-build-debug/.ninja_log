@@ -7,3 +7,10 @@
 1	25	1698600147695388817	CMakeFiles/CO_graph_coloring.dir/greedy_approach/greedy.c.o	56f966809568e2f2
 1	60	1698672200451567238	CMakeFiles/CO_graph_coloring.dir/genetic_alg_approach/genetic.c.o	7ff925eee706d10d
 60	86	1698672200479568162	CO_graph_coloring	d3956f90b1a12d06
+2	45	1698681131577821913	CMakeFiles/CO_graph_coloring.dir/main.c.o	74ae686d3793a1c2
+45	73	1698681131601826442	CO_graph_coloring	d3956f90b1a12d06
+1	62	1698694309684783320	CMakeFiles/CO_graph_coloring.dir/main.c.o	74ae686d3793a1c2
+2	68	1698694309692783167	CMakeFiles/CO_graph_coloring.dir/backtracking_approach/backtracking.c.o	97c2eb7d82e54459
+68	93	1698694309716782709	CO_graph_coloring	d3956f90b1a12d06
+1	28	1698695020858086169	CMakeFiles/CO_graph_coloring.dir/backtracking_approach/backtracking.c.o	97c2eb7d82e54459
+28	51	1698695020882086090	CO_graph_coloring	d3956f90b1a12d06

@@ -12,7 +12,7 @@ bool is_valid(int color, int vertex1,int n, int graph_matrix[n][n], const int co
             bool is_constraint_true = false;
             for (int m = 0; m< w; m++){
                 const cJSON* vertex = cJSON_GetArrayItem(constrained_vertex_array, m);
-                if (vertex->valueint != -1 && colors[vertex->valueint] ==color ) {
+                if (colors[vertex->valueint] ==color ) {
                     is_constraint_true = true;
                     break;
                 }
@@ -34,7 +34,7 @@ bool traverse_graph(int vertex1,int n, int graph_matrix[n][n],int colors[n], con
     for (int k=1; k<=n; k++){
         if(is_valid(k, vertex1, n, graph_matrix, colors, color_constraint)){
             colors[vertex1] = k;
-            if(traverse_graph( vertex1+1, n,  graph_matrix, colors, color_constraint)) return true;
+            traverse_graph( vertex1+1, n,  graph_matrix, colors, color_constraint);
         }
 
 
@@ -44,5 +44,6 @@ bool traverse_graph(int vertex1,int n, int graph_matrix[n][n],int colors[n], con
 }
 
 void backtracking_alg(int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint){
+
     traverse_graph(0,  n,  graph_matrix, colors,   color_constraint);
 }
