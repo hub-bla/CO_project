@@ -1,6 +1,6 @@
 #include "backtracking.h"
 
-bool is_valid(int color, int vertex1,int n, int graph_matrix[n][n],const int colors[n], const cJSON* color_constraint){
+bool is_valid(int color, int vertex1,int n, int graph_matrix[n][n], const int colors[n], const cJSON* color_constraint){
     bool constrained_checked = false;
     for (int i=0; i<n; i++){
         if(graph_matrix[vertex1][i] ==1 && colors[i]==color) return false;
