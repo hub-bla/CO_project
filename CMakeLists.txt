@@ -7,4 +7,5 @@ add_executable(CO_graph_coloring main.c
         json/cJSON.c
         greedy_approach/greedy.c
         greedy_approach/greedy.h
-        backtracking_approach/backtracking.c)
+        backtracking_approach/backtracking.c
+        genetic_alg_approach/genetic.c)
