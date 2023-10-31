@@ -24,26 +24,50 @@ bool is_valid(int color, int vertex1,int n, int graph_matrix[n][n], const int co
     }
     return true;
 }
-
-bool traverse_graph(int vertex1,int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint){
+int count_colors_backtracking(int n, const int colors[n]){
+    int count_arr[n+1];
+    int counter= 0;
+    for (int i=0; i<n+1; i++) count_arr[i]=0;
+    for (int i=0; i<n; i++){
+        int color = colors[i];
+        if(count_arr[color] == 0) {
+            count_arr[color] =1;
+            counter+=1;
+        }
+    }
+    return counter;
+}
+bool traverse_graph(int vertex1,int n, int *least_needed_colors , int graph_matrix[n][n],int temp_colors[n], int colors[n], const cJSON* color_constraint){
     if (vertex1 == n){
-        if (colors[n-1] == 0) return false;
-        return true;
+        int color_counter = count_colors_backtracking(n, temp_colors);
+
+        if (color_counter<*least_needed_colors) {
+            for (int i = 0; i < n; i++) {
+                colors[i] = temp_colors[i];
+            };
+            *least_needed_colors = color_counter;
+        };
+        return NULL;
     }
     //look for colors
     for (int k=1; k<=n; k++){
-        if(is_valid(k, vertex1, n, graph_matrix, colors, color_constraint)){
-            colors[vertex1] = k;
-            traverse_graph( vertex1+1, n,  graph_matrix, colors, color_constraint);
+        if(is_valid(k, vertex1, n, graph_matrix, temp_colors, color_constraint)){
+            temp_colors[vertex1] = k;
+            traverse_graph( vertex1+1,  n,least_needed_colors,  graph_matrix, temp_colors, colors, color_constraint);
+            temp_colors[vertex1] = 0;
         }
 
 
     }
 
-    return false;
+    return NULL;
 }
 
-void backtracking_alg(int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint){
 
-    traverse_graph(0,  n,  graph_matrix, colors,   color_constraint);
+
+void backtracking_alg(int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint){
+    int least_needed_colors =  n;
+    int temp_colors[n];
+    for (int i=0; i<n; i++) temp_colors[i]=0;
+    traverse_graph(0,  n,  &least_needed_colors,graph_matrix, temp_colors,colors,   color_constraint);
 }

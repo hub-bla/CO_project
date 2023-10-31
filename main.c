@@ -34,17 +34,19 @@ int main(int argc, char* argv[]) {
     }else if (strcmp(argv[2], "backtracking") ==0){
         backtracking_alg(n, graph_matrix, colors, color_constraint);
     }else if (strcmp(argv[2], "meta-heuristic") == 0){
-        genetic_algorithm(1000, n, graph_matrix, colors, color_constraint);
+        colors[0] = 1;
+        greedy_coloring(n, graph_matrix, colors, color_constraint);
+        genetic_algorithm(n*100, n, graph_matrix, colors, color_constraint);
     }else exit(1);
 
 
 
     printf("Minimal colors using %s alg: %d\n", argv[2], count_colors(n, colors));
     printf("%d\n", check_if_coloring_is_valid(n, graph_matrix, colors, color_constraint));
-    for (int i=0; i<n; i++){
-        printf("%d ", colors[i]);
-    }
-    printf("\n");
+//    for (int i=0; i<n; i++){
+//        printf("%d ", colors[i]);
+//    }
+//    printf("\n");
     return 0;
 }
 
@@ -59,7 +61,6 @@ cJSON* load_json_file(char* file_name){
     fread(json_file, 1, file_size, fptr);
 
     cJSON *json = cJSON_Parse(json_file);
-    printf("%s\n", cJSON_Print(json));
     fclose(fptr);
     free(json_file);
     return json;

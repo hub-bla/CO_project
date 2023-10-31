@@ -18,10 +18,10 @@ void generate_individual(int n, int instance_arr[n]){
     }
 }
 
-void insert_new_individual(int n, int population_size,  int fitness_arr[population_size], int population_arr[population_size][n], int ended_on){
+void insert_new_individual(int n, int population_size,  long long int fitness_arr[population_size], int population_arr[population_size][n], int ended_on){
     for (int i=ended_on; i>0; i--){
         if (fitness_arr[i]<fitness_arr[i-1]) {
-            int temp = fitness_arr[i];
+            long long int temp = fitness_arr[i];
             fitness_arr[i] = fitness_arr[i-1];
             fitness_arr[i-1] = temp;
 
@@ -37,8 +37,8 @@ void insert_new_individual(int n, int population_size,  int fitness_arr[populati
     }
 }
 // we want to minimize number of used colors and also find correct coloring
-int evaluate_individual(int n,  const int instance_arr[n], int graph_matrix[n][n], const cJSON* color_constraint){
-    int fitness_score = 0;
+long long int evaluate_individual(int n,  const int instance_arr[n], int graph_matrix[n][n], const cJSON* color_constraint){
+    long long int fitness_score = 0;
     int num_colors = count_colors(n, instance_arr);
     for (int i=0; i<n; i++){
         for (int j=0; j<i; j++){
@@ -57,15 +57,15 @@ int evaluate_individual(int n,  const int instance_arr[n], int graph_matrix[n][n
         }
     }
 
-    return (fitness_score+num_colors);
+    return ((fitness_score*10*n)+num_colors);
 }
 
 
 void mate_individual(int n, int new_individual[n],const int parent1[n], const int parent2[n]){
     for(int i=0; i<n; i++){
         int r = rand()%100;
-        if (r<45) new_individual[i] = parent1[i];
-        else if(r<90) new_individual[i] = parent2[i];
+        if (r<35) new_individual[i] = parent1[i];
+        else if(r<70) new_individual[i] = parent2[i];
         else new_individual[i] = 1+ (rand()%n);
     }
 }
@@ -74,8 +74,8 @@ void mate_individual(int n, int new_individual[n],const int parent1[n], const in
 void copy_elites(int n, int population_size,
                  int population_arr[population_size][n],
                  int new_generation[population_size][n],
-                 const int fitness_arr[population_size],
-                 int new_fitness_arr[population_size], int end){
+                 const long long int fitness_arr[population_size],
+                 long long int new_fitness_arr[population_size], int end){
     for(int i=0; i<end; i++){
         new_fitness_arr[i] = fitness_arr[i];
         for(int j=0; j<n; j++){
@@ -85,7 +85,8 @@ void copy_elites(int n, int population_size,
 };
 
 
-void copy_generation(int n, int population_size,int new_generation[population_size][n],int population_arr[population_size][n], const int new_fitness_arr[n], int fitness_arr[n]){
+void copy_generation(int n, int population_size,int new_generation[population_size][n],int population_arr[population_size][n],
+                     const long long int new_fitness_arr[n], long long  int fitness_arr[n]){
     for (int i=0; i<population_size; i++){
         fitness_arr[i] = new_fitness_arr[i];
         for(int j=0; j<n; j++) population_arr[i][j] = new_generation[i][j];
@@ -97,20 +98,26 @@ void copy_generation(int n, int population_size,int new_generation[population_si
 void genetic_algorithm(int num_of_iterations, int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint){
     int population_size = 100;
     int population_arr[population_size][n];
-    int fitness_arr[population_size];
+    long long int fitness_arr[population_size];
+    //loading solution from greedy alg
+    for (int i=0; i<n; i++) {
+        population_arr[0][i] = colors[i];
+    }
+    fitness_arr[0] = evaluate_individual(n, population_arr[0], graph_matrix, color_constraint);
+    insert_new_individual(n, population_size, fitness_arr, population_arr, 0);
     //generate instance
     //evaluate it
     // place it in correct position in the array
-    for (int index=0; index<population_size; index++) {
+    for (int index=1; index<population_size; index++) {
         generate_individual(n, population_arr[index]);
         fitness_arr[index]=evaluate_individual(n, population_arr[index], graph_matrix, color_constraint);
         insert_new_individual(n, population_size, fitness_arr, population_arr, index);
     };
-
+    printf("started\n");
     for (int iteration=0; iteration< num_of_iterations; iteration++){
 
         int new_generation[population_size][n];
-        int new_fitness_arr[population_size];
+        long long int new_fitness_arr[population_size];
         int s1 = ((10*population_size)/100);
         copy_elites(n, population_size, population_arr, new_generation, fitness_arr, new_fitness_arr,s1);
 
@@ -127,7 +134,7 @@ void genetic_algorithm(int num_of_iterations, int n, int graph_matrix[n][n],int 
             colors[k] = population_arr[0][k];
         }
         if (iteration%100 ==0){
-            printf("Iteration: %d, Fitness: %d\n", iteration, fitness_arr[0]);
+            printf("Iteration: %d Fitness: %lli\n", iteration, fitness_arr[0]);
         }
         copy_generation(n, population_size, new_generation, population_arr, new_fitness_arr, fitness_arr);
 
