@@ -8,4 +8,6 @@ add_executable(CO_graph_coloring main.c
         greedy_approach/greedy.c
         greedy_approach/greedy.h
         backtracking_approach/backtracking.c
-        genetic_alg_approach/genetic.c)
+        genetic_alg_approach/genetic.c
+        greedy_randomized_approach/greedy_randomized.c
+        greedy_randomized_approach/greedy_randomized.h)

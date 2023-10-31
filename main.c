@@ -5,6 +5,7 @@
 #include "greedy_approach/greedy.h"
 #include "backtracking_approach/backtracking.h"
 #include "genetic_alg_approach/genetic.h"
+#include "greedy_randomized_approach/greedy_randomized.h"
 #include <time.h>
 #include <string.h>
 cJSON* load_json_file(char* file_name);
@@ -12,7 +13,6 @@ int get_num_of_vertices(cJSON* json);
 void get_graph_matrix(cJSON* json, int n,int graph_matrix[n][n]);
 void print_graph_matrix(int n, int graph_matrix[n][n]);
 bool check_if_coloring_is_valid(int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint);
-
 
 int main(int argc, char* argv[]) {
 
@@ -33,6 +33,8 @@ int main(int argc, char* argv[]) {
         greedy_coloring(n, graph_matrix, colors, color_constraint);
     }else if (strcmp(argv[2], "backtracking") ==0){
         backtracking_alg(n, graph_matrix, colors, color_constraint);
+    }else if (strcmp(argv[2], "greedy_randomized") ==0){
+        greedy_randomized(n, graph_matrix, colors, color_constraint);
     }else if (strcmp(argv[2], "meta-heuristic") == 0){
         colors[0] = 1;
         greedy_coloring(n, graph_matrix, colors, color_constraint);
@@ -127,18 +129,5 @@ bool check_if_coloring_is_valid(int n, int graph_matrix[n][n],int colors[n], con
     return false;
 }
 
-
-void bruteforce(int n, int graph_matrix[n][n], cJSON* color_constraint){
-    int solution_to_check[n];
-    for (int i=0; i<n; i++) solution_to_check[i] =1;
-
-    //colors
-    for (int i=2; i<=n; i++){
-        //vertexes
-        for (int j=0; j<n; j++){
-            int previous_color = solution_to_check[j];
-        }
-    }
-}
 
 

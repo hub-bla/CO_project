@@ -79,6 +79,12 @@ build CMakeFiles/CO_graph_coloring.dir/genetic_alg_approach/genetic.c.o: C_COMPI
   OBJECT_DIR = CMakeFiles/CO_graph_coloring.dir
   OBJECT_FILE_DIR = CMakeFiles/CO_graph_coloring.dir/genetic_alg_approach
 
+build CMakeFiles/CO_graph_coloring.dir/greedy_randomized_approach/greedy_randomized.c.o: C_COMPILER__CO_graph_coloring_unscanned_Debug /home/hubert/CLionProjects/CO_graph_coloring/greedy_randomized_approach/greedy_randomized.c || cmake_object_order_depends_target_CO_graph_coloring
+  DEP_FILE = CMakeFiles/CO_graph_coloring.dir/greedy_randomized_approach/greedy_randomized.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/CO_graph_coloring.dir
+  OBJECT_FILE_DIR = CMakeFiles/CO_graph_coloring.dir/greedy_randomized_approach
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CO_graph_coloring
@@ -87,7 +93,7 @@ build CMakeFiles/CO_graph_coloring.dir/genetic_alg_approach/genetic.c.o: C_COMPI
 #############################################
 # Link the executable CO_graph_coloring
 
-build CO_graph_coloring: C_EXECUTABLE_LINKER__CO_graph_coloring_Debug CMakeFiles/CO_graph_coloring.dir/main.c.o CMakeFiles/CO_graph_coloring.dir/json/cJSON.c.o CMakeFiles/CO_graph_coloring.dir/greedy_approach/greedy.c.o CMakeFiles/CO_graph_coloring.dir/backtracking_approach/backtracking.c.o CMakeFiles/CO_graph_coloring.dir/genetic_alg_approach/genetic.c.o
+build CO_graph_coloring: C_EXECUTABLE_LINKER__CO_graph_coloring_Debug CMakeFiles/CO_graph_coloring.dir/main.c.o CMakeFiles/CO_graph_coloring.dir/json/cJSON.c.o CMakeFiles/CO_graph_coloring.dir/greedy_approach/greedy.c.o CMakeFiles/CO_graph_coloring.dir/backtracking_approach/backtracking.c.o CMakeFiles/CO_graph_coloring.dir/genetic_alg_approach/genetic.c.o CMakeFiles/CO_graph_coloring.dir/greedy_randomized_approach/greedy_randomized.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/CO_graph_coloring.dir
   POST_BUILD = :
