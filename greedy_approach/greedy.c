@@ -1,6 +1,6 @@
 #include "greedy.h"
 // tries to set colors one by one
-// the number of colors might be higher than optimal value
+// the number of colors might be higher than optimal value,
 // but it always will find some solution
 void greedy_coloring(int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint){
     for (int i=1; i<n; i++){
