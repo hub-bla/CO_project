@@ -7,6 +7,7 @@
 #include "genetic_alg_approach/genetic.h"
 #include "greedy_randomized_approach/greedy_randomized.h"
 #include <time.h>
+
 #include <string.h>
 cJSON* load_json_file(char* file_name);
 int get_num_of_vertices(cJSON* json);
@@ -28,6 +29,8 @@ int main(int argc, char* argv[]) {
     for (int i=0; i<n; i++){
         colors[i] = 0;
     }
+    clock_t t;
+    t = clock();
     if (strcmp(argv[2], "greedy") == 0){
         colors[0] = 1;
         greedy_coloring(n, graph_matrix, colors, color_constraint);
@@ -38,11 +41,12 @@ int main(int argc, char* argv[]) {
     }else if (strcmp(argv[2], "meta-heuristic") == 0){
         colors[0] = 1;
         greedy_coloring(n, graph_matrix, colors, color_constraint);
-        genetic_algorithm(n*100, n, graph_matrix, colors, color_constraint);
+        genetic_algorithm(3000, n, graph_matrix, colors, color_constraint);
     }else return 0;
 
-
-
+    t = clock() - t;
+    double time_taken = ((double)t)/CLOCKS_PER_SEC;
+    printf("TIME\n %f\n", time_taken);
     printf("Minimal colors using %s alg: %d\n", argv[2], count_colors(n, colors));
     printf("%d\n", check_if_coloring_is_valid(n, graph_matrix, colors, color_constraint));
     cJSON *output = cJSON_CreateObject();

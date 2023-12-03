@@ -113,7 +113,6 @@ void genetic_algorithm(int num_of_iterations, int n, int graph_matrix[n][n],int 
         fitness_arr[index]=evaluate_individual(n, population_arr[index], graph_matrix, color_constraint);
         insert_new_individual(n, population_size, fitness_arr, population_arr, index);
     };
-    printf("started\n");
     for (int iteration=0; iteration< num_of_iterations; iteration++){
 
         int new_generation[population_size][n];
@@ -133,9 +132,9 @@ void genetic_algorithm(int num_of_iterations, int n, int graph_matrix[n][n],int 
         for (int k = 0; k< n; k++){
             colors[k] = population_arr[0][k];
         }
-        if (iteration%100 ==0){
-            printf("Iteration: %d Fitness: %lli\n", iteration, fitness_arr[0]);
-        }
+//        if (iteration%100 ==0){
+//            printf("Iteration: %d Fitness: %lli\n", iteration, fitness_arr[0]);
+//        }
         copy_generation(n, population_size, new_generation, population_arr, new_fitness_arr, fitness_arr);
 
     }
