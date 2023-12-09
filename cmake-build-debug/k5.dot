@@ -1,0 +1,7 @@
+strict graph "" {
+	0 -- 1	[weight=1];
+	0 -- 3	[weight=1];
+	0 -- 4	[weight=1];
+	2 -- 3	[weight=1];
+	2 -- 4	[weight=1];
+}

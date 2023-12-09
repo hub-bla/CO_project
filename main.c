@@ -41,7 +41,8 @@ int main(int argc, char* argv[]) {
     }else if (strcmp(argv[2], "meta-heuristic") == 0){
         colors[0] = 1;
         greedy_coloring(n, graph_matrix, colors, color_constraint);
-        genetic_algorithm(3000, n, graph_matrix, colors, color_constraint);
+        int population_num = (int)strtol(argv[3],(char **)NULL, 10);
+        genetic_algorithm(3000, population_num,n, graph_matrix, colors, color_constraint);
     }else return 0;
 
     t = clock() - t;

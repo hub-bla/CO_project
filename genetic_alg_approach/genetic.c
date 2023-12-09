@@ -95,8 +95,8 @@ void copy_generation(int n, int population_size,int new_generation[population_si
 
 
 
-void genetic_algorithm(int num_of_iterations, int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint){
-    int population_size = 100;
+void genetic_algorithm(int num_of_iterations, int population_num,int n, int graph_matrix[n][n],int colors[n], const cJSON* color_constraint){
+    int population_size = population_num;
     int population_arr[population_size][n];
     long long int fitness_arr[population_size];
     //loading solution from greedy alg
